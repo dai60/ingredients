@@ -43,9 +43,18 @@
             </div>
         </section>
         <section class="p-8 mx-auto my-8 max-w-xl shadow-lg bg-white">
-            <h1 class="font-bold mb-4">Kiek porcijų gaminsite?</h1>
-            <p id="slider-count" class="text-xs">2</p>
-            <input id="portion-slider" class="slider w-5/12" type="range" min="1" max="6" value="2">
+            <h1 class="font-bold mb-6">Kiek porcijų gaminsite?</h1>
+            <div class="relative w-5/12">
+                <div class="absolute -top-2 slider-count flex justify-between w-full px-[2px] text-center">
+                    <span class="invisible text-xs">1</span>
+                    <span class="invisible text-xs">2</span>
+                    <span class="invisible text-xs">3</span>
+                    <span class="invisible text-xs">4</span>
+                    <span class="invisible text-xs">5</span>
+                    <span class="invisible text-xs">6</span>
+                </div>
+                <input id="portion-slider" class="slider w-full" type="range" min="1" max="6" value="2">
+            </div>
         </section>
         <section class="p-8 mx-auto my-8 max-w-xl shadow-lg bg-white">
             <h1 class="font-bold mb-4">Jums reikės šių ingredientų, tokiais kiekiais:</h1>

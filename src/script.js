@@ -22,6 +22,7 @@ const menu = {
 
 portionSlider.addEventListener("input", function (event) {
     updateIngredients();
+    updateSlider();
 });
 
 function selectRecipe(recipe) {
@@ -43,6 +44,19 @@ function selectedRecipe() {
     return document.querySelector(".recipe-selected").id;
 }
 
+function updateSlider() {
+    const numbers = Array.from(document.querySelectorAll(".slider-count > span"));
+    const value = Number(portionSlider.value);
+    for (let i = 0; i < numbers.length; i++) {
+        if (value === i + 1) {
+            numbers[i].classList.remove("invisible");
+        }
+        else {
+            numbers[i].classList.add("invisible");
+        }
+    }
+}
+
 function updateIngredients() {
     const ingredients = document.getElementById("ingredients");
     const portions = Number(portionSlider.value);
@@ -59,4 +73,5 @@ function writeIngredients(recipe, portions) {
     return ingredients.join("\n");
 }
 
+updateSlider();
 selectRecipe("cake");
