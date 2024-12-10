@@ -13,6 +13,8 @@
         rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
+
+    <script src="script.js" defer></script>
 </head>
 
 <body class="font-roboto my-16 bg-[#EFEFEF]">
@@ -20,20 +22,20 @@
         <section class="p-8 mx-auto my-8 max-w-xl shadow-lg bg-white">
             <h1 class="font-bold mb-4">Pasirinkite receptą:</h1>
             <div class="flex gap-6">
-                <div class="recipe relative w-36 border border-[#E6E6E6]">
-                    <img class="hidden absolute -top-3 -right-3" src="../assets/select.svg" alt="Selected">
+                <div id="chicken" onclick="selectRecipe('chicken')" class="recipe relative w-36 border border-[#E6E6E6]">
+                    <img class="absolute -top-3 -right-3 scale-0 transition-transform" src="../assets/select.svg" alt="Selected">
                     <img class="w-full h-20 mb-3 object-cover object-center" src="../assets/recipe1.jpg" alt="Vištiena su salotom">
                     <h2 class="font-bold text-sm mx-2 mb-2">Vištiena su salotom</h2>
                     <p class="text-xs mx-2 mb-6">Amet et at aliquam duis ut morbi turpis. Quis cursus tincidunt risus purus faucibus elit ut. Pellentesque montes.</p>
                 </div>
-                <div class="recipe relative w-36 border border-[#E6E6E6]">
-                    <img class="absolute -top-3 -right-3" src="../assets/select.svg" alt="Selected">
+                <div id="cake" onclick="selectRecipe('cake')" class="recipe relative w-36 border border-[#E6E6E6]">
+                    <img class="absolute -top-3 -right-3 scale-0 transition-transform" src="../assets/select.svg" alt="Selected">
                     <img class="w-full h-20 mb-3 object-cover object-center" src="../assets/recipe2.jpg" alt="Vištiena su salotom">
                     <h2 class="font-bold text-sm mx-2 mb-2">Tortas su mėlynėm</h2>
                     <p class="text-xs mx-2 mb-6">Amet et at aliquam duis ut morbi turpis. Quis cursus tincidunt risus purus faucibus elit ut. Pellentesque montes.</p>
                 </div>
-                <div class="recipe relative w-36 border border-[#E6E6E6]">
-                    <img class="hidden absolute -top-3 -right-3" src="../assets/select.svg" alt="Selected">
+                <div id="pasta" onclick="selectRecipe('pasta')" class="recipe relative w-36 border border-[#E6E6E6]">
+                    <img class="absolute -top-3 -right-3 scale-0 transition-transform" src="../assets/select.svg" alt="Selected">
                     <img class="w-full h-20 mb-3 object-cover object-center" src="../assets/recipe3.jpg" alt="Vištiena su salotom">
                     <h2 class="font-bold text-sm mx-2 mb-2">Makaronai su mėsa</h2>
                     <p class="text-xs mx-2 mb-6">Amet et at aliquam duis ut morbi turpis. Quis cursus tincidunt risus purus faucibus elit ut. Pellentesque montes.</p>
@@ -43,10 +45,11 @@
         <section class="p-8 mx-auto my-8 max-w-xl shadow-lg bg-white">
             <h1 class="font-bold mb-4">Kiek porcijų gaminsite?</h1>
             <p id="slider-count" class="text-xs">2</p>
-            <input class="slider w-5/12" type="range" min="1" max="6" value="2">
+            <input id="portion-slider" class="slider w-5/12" type="range" min="1" max="6" value="2">
         </section>
         <section class="p-8 mx-auto my-8 max-w-xl shadow-lg bg-white">
             <h1 class="font-bold mb-4">Jums reikės šių ingredientų, tokiais kiekiais:</h1>
+            <div id="ingredients"></div>
         </section>
     </main>
 </body>
